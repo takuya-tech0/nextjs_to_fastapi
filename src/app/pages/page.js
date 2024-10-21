@@ -1,10 +1,3 @@
-// コンソールで実行してみよう
-// fetch('http://127.0.0.1:5000/night')
-//   .then(response => response.text())  // レスポンスをテキスト形式で取得
-//   .then(data => {
-//     console.log(data);  // 取得したテキストをコンソールに表示
-//   });
-
 // Reactをインポートします
 import React from 'react';
 
@@ -14,7 +7,7 @@ export default async function NightPage() {
 
   // fetch 関数を使って指定した URL（Flask サーバー）にリクエストを送信します。
   // await は fetch の完了を待ち、結果を res に格納します
-  const res = await fetch('https://tech0-gen-7-step3-studentwebapp-pos-test2-ekh7bbekctbtbee8.eastus-01.azurewebsites.net//night'); 
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/night`); 
 
   // await を使用して、テキストの取得が完了するまで待機します
   const data = await res.text();
@@ -27,4 +20,3 @@ export default async function NightPage() {
     </div>
   );
 }
-
